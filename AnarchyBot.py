@@ -3,23 +3,14 @@ import discord
 from discord.ext import commands
 from discord.utils import get
 import asyncio
-import pytube
 import socket
 import time
-import urllib.request
-from bs4 import BeautifulSoup
-
-import collections
 
 import autocomplete as auto
 
 import sqlite3
 
 from datetime import date
-
-import os
-import os.path
-from os import path
 
 import chatbot
 
