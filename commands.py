@@ -14,7 +14,8 @@ commands = {
     "clear" :"Will purge the current chat by amount + 1 (the command itself)",
     "russianroulette" :"This command will allow you to spin the chambers of fate.\nThere is a 1/6 chance you will get banned upon use.",
     "lb" :"Shows the leaderboard for russian roulette",
-    "genroles" :"Generates the database that stores all user roles."
+    "genroles" :"Generates the database that stores all user roles.",
+    "stats":"Returns your stats that the bot has counted."
 }
 
 async def help(message, ext, log):
@@ -40,7 +41,12 @@ async def clear(message, ext, log):
     return log
 
 async def uptime(message, ext, log):
-    await message.channel.send(log.get_uptime())
+    await message.channel.send(await log.get_uptime())
+    return log
+
+async def stats(message, ext, log):
+    messages = await log.get_messages()
+    await message.channel.send(f"\nFor as long as the bots been running. (/uptime)\nThe bot has counted {len(messages)} messages.\nIt has counted {len([i for i in messages if i.author == message.author])} by you.")
     return log
 
 async def get_leaderboard():
