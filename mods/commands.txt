@@ -1,0 +1,6 @@
+help
+clear
+russianroulette
+lb
+generateroles
+streak
