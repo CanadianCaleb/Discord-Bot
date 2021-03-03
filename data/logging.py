@@ -1,0 +1,18 @@
+from datetime import datetime
+
+class log():
+    def __init__(self, start_time):
+        self.__messages = []
+        self.__start_time = start_time
+
+    async def log(self, message):
+        try:
+            self.__messages.append(message)
+            with open("data/log.txt", 'r+') as f:
+                f.write(f"{message.guild} - {message.channel} - {message.author} : {message.content}") 
+            return f"{message.guild} - {message.channel} - {message.author} : {message.content}"
+        except: return "Message logging failed."
+
+    async def get_messages(self): return self.__messages
+
+    async def get_uptime(self): return f"Bot launched at {self.__start_time}\nand has been running for {datetime.now()-self.__start_time}"
