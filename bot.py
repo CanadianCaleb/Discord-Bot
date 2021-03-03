@@ -105,7 +105,7 @@ async def on_message(message):
     message_count += 1
 
     if message_count >= 30:
-        roles.gen_roles()
+        roles.gen_roles(message)
         message_count = 0
 
     # Cut message into simpler forms
