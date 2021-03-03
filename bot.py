@@ -85,7 +85,7 @@ commands = {
     "clear" : clear,
     "russianroulette": russianroulette,
     "lb" : lb,
-    "genroles" : genroles
+    "genroles" : genroles,
     "streak": streak
 }
 
