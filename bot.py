@@ -9,7 +9,7 @@ from datetime import datetime
 from mods import chatbot, autocomplete
 from data import logging, sql_manip
 
-from commands import help, clear, uptime, russianroulette, lb, streak
+from commands import help, clear, uptime, russianroulette, lb, streak, stats
 
 intents = discord.Intents().all()
 bot = commands.Bot(command_prefix='/', intents=intents)
@@ -86,7 +86,8 @@ commands = {
     "russianroulette": russianroulette,
     "lb" : lb,
     "genroles" : genroles,
-    "streak": streak
+    "streak": streak,
+    "stats" : stats
 }
 
 @bot.event
@@ -108,7 +109,7 @@ async def on_message(message):
         message_count = 0
 
     # Cut message into simpler forms
-    content = message.content.lower(), 
+    content = message.content.lower()
     command, ext = content[1:].split(' ')[0], content[1:].split(' ')[1:]
 
     # Check if the message is coming from a server (In case of starting hang man)
