@@ -8,8 +8,6 @@ class log():
     async def log(self, message):
         try:
             self.__messages.append(message)
-            with open("data/log.txt", 'a+') as f:
-                f.write(f"\n{message.guild} - {message.channel} - {message.author} : {message.content}") 
             return f"{message.guild} - {message.channel} - {message.author} : {message.content}"
         except: return "Message logging failed."
 
